@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Walaa food | قائمة الطعام</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+--red:#9f1512;
+--dark:#5f0d0b;
+--cream:#fff8ec;
+--cream2:#f7ead8;
+--gold:#c69a4b;
+--green:#31533f;
+--text:#211714;
+--muted:#7b6a5d;
+--white:#fff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+margin:0;
+font-family:"Cairo",Arial,sans-serif;
+background:linear-gradient(180deg,var(--cream),var(--cream2));
+color:var(--text);
+}
+a{text-decoration:none;color:inherit}
+button,input,textarea{font-family:inherit}
+.header{
+position:sticky;
+top:0;
+z-index:50;
+background:rgba(255,248,236,.94);
+backdrop-filter:blur(10px);
+border-bottom:1px solid rgba(198,154,75,.35);
+}
+.nav{
+max-width:1150px;
+margin:auto;
+padding:12px 15px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:10px;
+}
+.logo{
+display:flex;
+align-items:center;
+gap:9px;
+font-weight:900;
+color:var(--red);
+font-size:20px;
+}
+.logo-icon{
+width:42px;
+height:42px;
+border-radius:50%;
+background:linear-gradient(135deg,var(--red),#c7352b);
+color:#fff;
+display:grid;
+place-items:center;
+border:2px solid var(--gold);
+}
+.nav-actions{
+display:flex;
+gap:8px;
+align-items:center;
+}
+.nav-btn{
+border:0;
+border-radius:999px;
+padding:10px 13px;
+font-weight:900;
+cursor:pointer;
+}
+.cart-top{
+background:#fff;
+color:var(--red);
+border:1px solid rgba(159,21,18,.18);
+}
+.whatsapp-top{
+background:#16b84e;
+color:#fff;
+}
+.hero{
+max-width:1150px;
+margin:auto;
+padding:35px 15px 20px;
+display:grid;
+grid-template-columns:1.1fr .9fr;
+gap:22px;
+align-items:center;
+}
+.hero-box{
+background:rgba(255,255,255,.75);
+border:1px solid rgba(198,154,75,.35);
+border-radius:30px;
+padding:32px 22px;
+box-shadow:0 16px 35px rgba(80,30,10,.12);
+}
+.badge{
+display:inline-block;
+background:rgba(49,83,63,.1);
+color:var(--green);
+border:1px solid rgba(49,83,63,.18);
+border-radius:999px;
+padding:8px 14px;
+font-weight:900;
+margin-bottom:15px;
+}
+h1{
+margin:0;
+font-size:clamp(42px,9vw,85px);
+line-height:1;
+color:var(--red);
+font-weight:900;
+}
+.subtitle{
+font-size:clamp(22px,4vw,34px);
+color:var(--green);
+font-weight:900;
+margin:13px 0;
+}
+.hero-box p{
+font-weight:700;
+color:var(--muted);
+font-size:17px;
+line-height:1.8;
+}
+.hero-actions{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-top:18px;
+}
+.main-btn,.second-btn{
+border:0;
+border-radius:999px;
+padding:12px 18px;
+font-weight:900;
+font-size:16px;
+cursor:pointer;
+}
+.main-btn{
+background:linear-gradient(135deg,var(--red),var(--dark));
+color:#fff;
+}
+.second-btn{
+background:#fff;
+color:var(--red);
+border:1px solid rgba(198,154,75,.5);
+}
+.logo-panel{
+min-height:330px;
+background:rgba(255,255,255,.68);
+border:1px solid rgba(198,154,75,.35);
+border-radius:30px;
+display:grid;
+place-items:center;
+box-shadow:0 16px 35px rgba(80,30,10,.12);
+}
+.logo-circle{
+width:min(260px,70vw);
+height:min(260px,70vw);
+border-radius:50%;
+background:linear-gradient(135deg,var(--red),#cf3a31);
+border:7px solid #fff;
+outline:3px solid var(--gold);
+display:grid;
+place-items:center;
+text-align:center;
+color:#fff;
+box-shadow:0 16px 35px rgba(159,21,18,.26);
+}
+.logo-circle .chef{font-size:70px}
+.logo-circle strong{display:block;font-size:33px}
+.logo-circle span{font-weight:900;color:#ffe7c6}
+.tabs-wrap{
+max-width:1150px;
+margin:auto;
+padding:0 15px;
+position:sticky;
+top:67px;
+z-index:40;
+}
+.tabs{
+display:flex;
+gap:8px;
+overflow-x:auto;
+background:rgba(255,255,255,.82);
+border:1px solid rgba(198,154,75,.3);
+border-radius:20px;
+padding:9px;
+scrollbar-width:none;
+}
+.tabs::-webkit-scrollbar{display:none}
+.tab{
+flex:0 0 auto;
+background:#fff;
+border:1px solid rgba(49,83,63,.15);
+border-radius:999px;
+padding:8px 13px;
+font-weight:900;
+color:var(--green);
+}
+.menu{
+max-width:1150px;
+margin:auto;
+padding:15px 15px 95px;
+}
+.menu-section{
+background:rgba(255,255,255,.72);
+border:1px solid rgba(198,154,75,.32);
+border-radius:28px;
+padding:20px;
+margin:22px 0;
+box-shadow:0 12px 30px rgba(80,30,10,.08);
+scroll-margin-top:155px;
+}
+.section-title{
+margin:0 0 20px;
+text-align:center;
+font-size:clamp(27px,5vw,42px);
+color:var(--red);
+font-weight:900;
+}
+.sub-title{
+margin:18px 0 10px;
+font-size:22px;
+font-weight:900;
+color:var(--green);
+border-right:5px solid var(--gold);
+padding-right:10px;
+}
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+}
+.item{
+background:#fff;
+border:1px solid rgba(198,154,75,.28);
+border-radius:20px;
+padding:14px;
+display:flex;
+flex-direction:column;
+gap:8px;
+min-height:150px;
+}
+.item h3{
+margin:0;
+font-size:18px;
+line-height:1.6;
+font-weight:900;
+}
+.desc{
+font-size:14px;
+font-weight:700;
+line-height:1.7;
+color:var(--muted);
+margin:0;
+}
+.item-bottom{
+margin-top:auto;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:8px;
+}
+.price{
+background:rgba(159,21,18,.08);
+color:var(--red);
+font-weight:900;
+border-radius:999px;
+padding:6px 10px;
+white-space:nowrap;
+}
+.add{
+border:0;
+background:var(--green);
+color:#fff;
+border-radius:999px;
+padding:8px 11px;
+font-weight:900;
+cursor:pointer;
+white-space:nowrap;
+}
+.note{
+margin-top:13px;
+background:rgba(198,154,75,.13);
+border:1px dashed rgba(198,154,75,.65);
+border-radius:18px;
+padding:12px;
+text-align:center;
+color:var(--dark);
+font-weight:900;
+}
+.float-cart{
+position:fixed;
+left:14px;
+bottom:14px;
+z-index:60;
+border:0;
+background:linear-gradient(135deg,var(--red),var(--dark));
+color:#fff;
+border-radius:999px;
+padding:14px 18px;
+font-weight:900;
+font-size:16px;
+box-shadow:0 15px 35px rgba(159,21,18,.35);
+}
+.modal{
+position:fixed;
+inset:0;
+background:rgba(25,18,15,.6);
+backdrop-filter:blur(5px);
+z-index:100;
+display:none;
+align-items:center;
+justify-content:center;
+padding:12px;
+}
+.modal.active{display:flex}
+.cart{
+width:min(700px,100%);
+max-height:92vh;
+overflow:auto;
+background:#fff8fb;
+border-radius:28px;
+box-shadow:0 25px 80px rgba(0,0,0,.25);
+}
+.cart-head{
+position:sticky;
+top:0;
+z-index:5;
+background:#fff0f6;
+border-bottom:1px solid rgba(159,21,18,.15);
+padding:16px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+.cart-head h2{
+margin:0;
+color:var(--dark);
+font-size:23px;
+font-weight:900;
+}
+.close{
+border:0;
+background:#fff;
+color:var(--red);
+width:40px;
+height:40px;
+border-radius:50%;
+font-size:25px;
+font-weight:900;
+}
+.cart-body{padding:15px}
+.cart-row{
+background:#fff;
+border:1px solid rgba(159,21,18,.1);
+border-radius:18px;
+padding:12px;
+margin-bottom:10px;
+display:grid;
+grid-template-columns:1fr auto auto;
+gap:8px;
+align-items:center;
+}
+.cart-name{font-weight:900}
+.qty{
+display:flex;
+gap:5px;
+align-items:center;
+background:#fff0f4;
+border-radius:999px;
+padding:4px;
+}
+.qty button{
+border:0;
+background:#fff;
+color:var(--red);
+border-radius:50%;
+width:28px;
+height:28px;
+font-weight:900;
+}
+.remove{
+border:0;
+background:#ffecef;
+color:var(--red);
+border-radius:999px;
+padding:8px 10px;
+font-weight:900;
+}
+.empty{
+text-align:center;
+font-weight:900;
+color:var(--muted);
+padding:20px 5px;
+}
+.field{margin-top:12px}
+.field label{
+display:block;
+font-weight:900;
+color:var(--dark);
+margin-bottom:6px;
+}
+.field input,.field textarea{
+width:100%;
+border:1px solid rgba(159,21,18,.2);
+border-radius:18px;
+padding:13px;
+font-size:15px;
+font-weight:800;
+outline:none;
+background:#fff;
+}
+.field textarea{min-height:86px;resize:vertical}
+.total{
+margin-top:14px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#fff;
+border-radius:18px;
+border:1px solid rgba(159,21,18,.1);
+padding:15px;
+font-size:22px;
+font-weight:900;
+color:var(--dark);
+}
+.order{
+width:100%;
+margin-top:14px;
+border:0;
+background:#09b83f;
+color:#fff;
+border-radius:20px;
+padding:15px;
+font-size:19px;
+font-weight:900;
+}
+.footer{
+background:linear-gradient(135deg,var(--dark),var(--red));
+color:#fff;
+text-align:center;
+padding:24px 15px;
+border-top:3px solid var(--gold);
+}
+.footer strong{font-size:24px}
+.footer p{margin:5px 0;color:#ffe8c8;font-weight:800}
+@media(max-width:900px){
+.hero{grid-template-columns:1fr}
+.grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:560px){
+.whatsapp-top{display:none}
+.hero{padding-top:22px}
+.hero-box{padding:25px 17px;border-radius:24px}
+.grid{grid-template-columns:1fr}
+.menu-section{padding:15px;border-radius:22px}
+.cart-row{grid-template-columns:1fr}
+.float-cart{right:12px;left:12px}
+}
+</style>
+</head>
+<body>
+<header class="header">
+<nav class="nav">
+<a class="logo" href="#home"><span class="logo-icon">🍽️</span><span>Walaa food</span></a>
+<div class="nav-actions">
+<a class="nav-btn whatsapp-top" href="https://wa.me/201551041881" target="_blank">واتساب</a>
+<button class="nav-btn cart-top" onclick="openCart()">🧺 السلة <span id="cartCount">0</span></button>
+</div>
+</nav>
+  </header>
+  <main>
+<section class="hero" id="home">
+<div class="hero-box">
+<div class="badge">المنصورة • أكل بيتي</div>
+<h1>Walaa food</h1>
+<div class="subtitle">أكل بيتي بطعم الزمن الجميل</div>
+<p>محاشي، مشويات، طواجن، مكرونات، وجبات عائلية وطلبات يومية جاهزة للحجز والطلب.</p>
+<div class="hero-actions">
+<a class="main-btn" href="https://wa.me/201551041881" target="_blank">اطلبي الآن واتساب</a>
+<a class="second-btn" href="#menu">تصفحي المنيو</a>
+</div>
+</div>
+<div class="logo-panel">
+<div class="logo-circle">
+<div>
+<div class="chef">👩‍🍳</div>
+<strong>Walaa food</strong>
+<span>قائمة الطعام</span>
+</div>
+</div>
+</div>
+</section>
+
+<div class="tabs-wrap">
+<div class="tabs" id="tabs"></div>
+</div>
+
+<section class="menu" id="menu"></section>
+</main>
+
+<footer class="footer">
+<strong>Walaa food</strong>
+<p>المنصورة</p>
+<p>واتساب: 01551041881 | تليفون: 01107096467</p>
+</footer>
+
+<button class="float-cart" onclick="openCart()">🧺 سلة الطلب <span id="floatCartCount">0</span></button>
+
+<div class="modal" id="cartModal">
+<div class="cart">
+<div class="cart-head">
+<h2>سلة طلبك من Walaa food 🍽️</h2>
+<button class="close" onclick="closeCart()">×</button>
+</div>
+<div class="cart-body">
+<div id="cartItems"></div>
+
+<div class="field">
+<label for="customerName">الاسم *</label>
+<input id="customerName" type="text" placeholder="نتشرف باسم حضرتك لتسجيل الأوردر ❤️">
+</div>
+
+<div class="field">
+<label for="customerAddress">العنوان بالتفصيل *</label>
+<textarea id="customerAddress" placeholder="اكتب/ي العنوان كامل: المنطقة، الشارع، العمارة، الدور، وأي علامة مميزة 🛵"></textarea>
+</div>
+
+<div class="total">
+<span>إجمالي طلبك:</span>
+<span><span id="totalPrice">0</span> ج.م</span>
+</div>
+
+<button class="order" onclick="sendOrder()">تأكيد الطلب على واتساب</button>
+</div>
+</div>
+</div>
+
+<script>
+const WHATSAPP_NUMBER="201551041881";
+const sections=[
+{
+title:"أكلات الزمن الجميل",
+id:"old",
+groups:[
+{
+title:"",
+items:[
+{name:"فرخة كنتاكي كبيرة",price:"500"},
+{name:"فرخة مسلوقة ومحمرة",desc:"مع أرز / شوربة + مخلل",price:"400"},
+{name:"فرخة فرن محشية",desc:"مع مخلل / بطاطس — بالحجز المسبق",price:"450"},
+{name:"كبسة بالفراخ",desc:"مع صوص الدقوس + مخلل",price:"450 / 275"},
+{name:"كبسة بالفراخ",price:"450 / 225"},
+{name:"فرد حمام محشي",price:"210"},
+{name:"بطة فرن محشية",price:"على حسب الوزن"},
+{name:"لحمة مسلوقة ومحمرة",desc:"مع شوربة + مخلل",price:"150 / 300 / 600"},
+{name:"لحمة كباب حلة",price:"165 / 325 / 650"},
+{name:"لحمة بالبطاطس والبصل",price:"165 / 325 / 650"},
+{name:"كفتة أرز بالصلصة",price:"100 / 200 / 400"},
+{name:"كفتة داود باشا",price:"175 / 350 / 700"},
+{name:"كبسة باللحمة",desc:"مع صوص الدقوس + مخلل",price:"250 / 425 / 825"},
+{name:"كبدة إسكندراني",desc:"مع طحينة + مخلل + عيش",price:"175 / 350 / 700"},
+{name:"سجق إسكندراني",desc:"مع طحينة + مخلل + عيش",price:"175 / 350 / 700"},
+{name:"رقاق باللحمة المفرومة",price:"200 / 320"},
+{name:"كشري أصفر",desc:"بيض مسلوق + بطاطس + باذنجان + طماطم محشية",price:"100"}
+]
+}
+]
+},
+{
+title:"الطواجن",
+id:"tagens",
+groups:[
+{
+title:"",
+items:[
+{name:"طاجن محشي ورق عنب باللحمة",price:"320"},
+{name:"طاجن محشي ورق عنب بالكوارع",price:"315"},
+{name:"طاجن محشي ورق عنب بالعكاوي",price:"315"},
+{name:"طاجن محشي ورق عنب بالصدور المشوية",price:"275"},
+{name:"طاجن خضار سادة",desc:"خضار اليوم",price:"75"},
+{name:"طاجن ملوخية",price:"90"},
+{name:"طاجن بامية سادة",price:"90"},
+{name:"طاجن خضار باللحمة",price:"240"},
+{name:"طاجن بامية باللحمة",price:"255"},
+{name:"طاجن كوارع بالصلصة",price:"185"},
+{name:"طاجن معمر وسط",price:"200"},
+{name:"طاجن معمر كبير",price:"300"},
+{name:"طاجن معمر سادة",price:"120"},
+{name:"طاجن معمر باللحمة",price:"275"},
+{name:"طاجن لحمة بالبصل",price:"230"},
+{name:"طاجن مسقعة بالمفروم",price:"150"},
+{name:"طاجن مسقعة بالمفروم والبشاميل",price:"170"},
+{name:"طاجن لسان عصفور بالكبد والقوانص",price:"160"},
+{name:"طاجن لسان عصفور باللحمة المفرومة",price:"175"},
+{name:"طاجن عكاوي بالبصل",price:"185"}
+]
+}
+]
+},
+{
+title:"المشويات",
+id:"grills",
+groups:[
+{
+title:"",
+note:"جميع المشويات يقدم معها عيش / مخلل / سلطة",
+items:[
+{name:"فرخة مشوية",desc:"أرز بسمتي / بطاطس بوم فريت / مخلل",price:"400"},
+{name:"نصف فرخة مشوية",desc:"أرز بسمتي / بطاطس بوم فريت / مخلل",price:"200"},
+{name:"ربع فرخة مشوية",desc:"أرز بسمتي / بطاطس بوم فريت / مخلل",price:"100"},
+{name:"صدور فيليه مشوية",price:"100 / 200 / 400"},
+{name:"شيش طاووق",price:"90 / 175 / 350"},
+{name:"كفتة فراخ",price:"90 / 175 / 350"},
+{name:"كفتة لحمة",price:"90 / 175 / 600"},
+{name:"كبدة شرايح",price:"150 / 300 / 600"}
+]
+}
+]
+},
+{
+title:"سلطات وإضافات",
+id:"salads",
+groups:[
+{
+title:"",
+items:[
+{name:"سلطة خضراء",price:"30 / 50"},
+{name:"طحينة",price:"40 / 60"},
+{name:"بابا غنوج",price:"40 / 60"},
+{name:"ثومية",price:"25 / 50"},
+{name:"كولو سلو",price:"40 / 60"},
+{name:"سلطة زبادي بالخيار",price:"40 / 60"},
+{name:"مخلل مشكل",price:"20 / 40"},
+{name:"باذنجان مخلل",price:"40 / 60"},
+{name:"صوص الدقوس",price:"30 / 50"},
+{name:"صوص الديميجلاس",price:"40 / 60"},
+{name:"خضار سوتيه",price:"70"},
+{name:"بطاطس بوم فريت",price:"40"}
+]
+}
+]
+},
+  {
+title:"المحاشي والممبار",
+id:"mahshi",
+groups:[
+{
+title:"أطباق المحاشي",
+items:[
+{name:"طبق محشي ورق عنب",price:"80"},
+{name:"طبق محشي كرنب",price:"70"},
+{name:"طبق ممبار",price:"85"},
+{name:"طبق محشي ورق عنب وكرنب",price:"115"},
+{name:"طبق محشي مشكل",desc:"كوسة - فلفل - باذنجان",price:"120"}
+]
+},
+{
+title:"أطباق محاشي + ممبار",
+items:[
+{name:"طبق محشي ورق عنب وممبار",price:"205"},
+{name:"طبق محشي كرنب وممبار",price:"195"},
+{name:"طبق محشي ورق عنب وكرنب وممبار",price:"200"}
+]
+},
+{
+title:"سرفيس المحاشي",
+items:[
+{name:"سرفيس مشكل محاشي",desc:"كل الأنواع — عائلي",price:"280"},
+{name:"سرفيس مشكل محاشي وممبار عائلي",price:"360"}
+]
+},
+{
+title:"المحاشي بالكيلو",
+items:[
+{name:"كيلو ورق عنب",price:"150"},
+{name:"كيلو ورق عنب باللحمة المفرومة",price:"250"},
+{name:"طاجن ورق عنب بالاستيك",price:"400"},
+{name:"طاجن ورق عنب بالكوارع",price:"350"},
+{name:"كيلو كرنب",price:"150"},
+{name:"كيلو باذنجان",price:"150"},
+{name:"كيلو كوسة",price:"150"},
+{name:"كيلو فلفل",price:"150"},
+{name:"كيلو محشي مشكل",price:"150"},
+{name:"كيلو ممبار",price:"320"}
+]
+}
+]
+},
+{
+title:"وجبات عائلية",
+id:"family",
+groups:[
+{
+title:"",
+note:"جميع الوجبات يقدم معها بطاطس + مخلل + سلطة",
+items:[
+{name:"سرفيس مشكل محاشي مع فرخة مشوية",price:"850"},
+{name:"سرفيس مشكل محاشي وممبار ومشويات",desc:"كفتة لحمة / كفتة فراخ / شيش طاووق",price:"950"},
+{name:"سرفيس مشكل محاشي + سرفيس مشكل مشويات + سرفيس مشكل مقبلات",desc:"كفتة فراخ / كفتة لحمة / شيش / مشوي صدور + كبيبة + سمبوسة + ممبار",price:"2100"},
+{name:"صينية فراخ بالبطاطس مع أرز أبيض",price:"550"},
+{name:"مكرونة بشاميل عائلي مع فرخة مشوية",price:"850"},
+{name:"سرفيس لحمة ستيك مع أرز بسمتي بالمكسرات",price:"1050"},
+{name:"سرفيس مشكل مشويات مع أرز بسمتي بالمكسرات ومحشي ورق عنب",desc:"كفتة فراخ / كفتة لحمة / شيش طاووق / مشوي صدور",price:"1675"},
+{name:"نجرسكو حجم عائلي مع استربس",desc:"8 قطع",price:"850"},
+{name:"سرفيس ميكس جريل دجاج مع أرز بسمتي وعيش",desc:"شيش طاووق / مشوي صدور / كفتة فراخ",price:"950"},
+{name:"سرفيس مشكل مع أرز بسمتي وعيش",desc:"كفتة / كبدة / سجق / ممبار",price:"1550"}
+]
+}
+]
+},
+{
+title:"المكرونات",
+id:"pasta",
+groups:[
+{
+title:"",
+items:[
+{name:"مكرونة ريد صوص",price:"65"},
+{name:"مكرونة وايت صوص",price:"85"},
+{name:"مكرونة تشيكن ألفريدو",price:"150"},
+{name:"مكرونة بشاميل",price:"130"},
+{name:"مكرونة بشاميل عائلي",price:"375"},
+{name:"مكرونة نجرسكو",price:"140"},
+{name:"مكرونة نجرسكو عائلي",price:"400"}
+]
+}
+]
+},
+{
+title:"الأرز",
+id:"rice",
+groups:[
+{
+title:"",
+items:[
+{name:"طبق أرز أبيض",price:"50"},
+{name:"طبق أرز بالشعرية",price:"55"},
+{name:"طبق فتة سادة",price:"85"},
+{name:"طبق أرز بسمتي",price:"70"},
+{name:"طبق أرز بسمتي بالخلطة",price:"80"},
+{name:"طبق أرز بسمتي",desc:"بالخلطة والمكسرات",price:"100"}
+]
+}
+]
+},
+{
+title:"المقليات بالقطعة",
+id:"fried",
+groups:[
+{
+title:"",
+items:[
+{name:"فراخ بانيه",price:"60"},
+{name:"استربس",price:"45"},
+{name:"كرات دجاج محشية",price:"30"},
+{name:"كوردن بلو",price:"125"},
+{name:"كيبة",price:"30"},
+{name:"سمبوسة جبنة",price:"15"},
+{name:"سمبوسة لحمة",price:"20"}
+]
+}
+]
+},
+{
+title:"وجبات الطلبة",
+id:"students",
+groups:[
+{
+title:"",
+note:"يقدم مع بطاطس ومخلل وسلطة",
+items:[
+{name:"مكرونة وايت صوص مع قطعتين استربس",price:"160"},
+{name:"مكرونة ريد صوص مع قطعة فراخ بانيه مقلية",price:"140"},
+{name:"أرز بسمتي مع ربع فرخة مشوية",price:"140"},
+{name:"محشي كرنب مع 2 كفتة فراخ مشوية",price:"150"},
+{name:"محشي ورق عنب مع شريحة مشوي صدور",price:"160"},
+{name:"أرز وملوخية مع ربع فرخة مشوية",price:"160"}
+]
+}
+]
+},
+  {
+title:"وجبات فردية",
+id:"single",
+groups:[
+{
+title:"وجبات المحاشي",
+note:"جميع الوجبات يقدم معها بطاطس + مخلل + سلطة",
+items:[
+{name:"محشي ورق عنب مع كفتة لحمة مشوية",price:"280"},
+{name:"محشي ورق عنب مع شيش طاووق",price:"200"},
+{name:"محشي ورق عنب مع ربع فرخة مشوية",price:"180"},
+{name:"محشي ورق عنب مع مشوي صدور",price:"200"},
+{name:"محشي ورق عنب مع فرد حمام محشي",price:"300"},
+{name:"محشي ورق عنب مع لحمة محمرة",price:"280"},
+{name:"محشي ورق عنب مع استربس",price:"180"},
+{name:"محشي كرنب مع كفتة فراخ مشوية",price:"220"},
+{name:"محشي كرنب مع ربع فرخة مشوية",price:"160"},
+{name:"محشي كرنب مع مشوي صدور",price:"180"},
+{name:"محشي كرنب مع شيش طاووق",price:"180"},
+{name:"محشي كرنب مع لحمة محمرة",price:"260"},
+{name:"محشي كرنب مع فراخ بانيه",price:"180"},
+{name:"محشي كرنب مع استربس",price:"160"}
+]
+},
+{
+title:"مكرونات ونجرسكو",
+items:[
+{name:"مكرونة بشاميل مع كوردن بلو",price:"270"},
+{name:"مكرونة بشاميل مع ربع فرخة مشوية",price:"250"},
+{name:"مكرونة بشاميل مع استربس",price:"250"},
+{name:"مكرونة بشاميل مع فراخ بانيه",price:"200"},
+{name:"نجرسكو مع كفتة لحمة",price:"250"},
+{name:"نجرسكو مع كوردن بلو",price:"250"},
+{name:"نجرسكو مع استربس",price:"250"}
+]
+},
+{
+title:"وجبات فردية متنوعة",
+items:[
+{name:"فتة باللحمة والخل والثوم",price:"200"},
+{name:"أرز وخضار مع لحمة محمرة",price:"200"},
+{name:"أرز وخضار مع ربع فرخة مشوية",price:"180"},
+{name:"أرز بالشعرية مع كفتة رز بالصلصة",price:"150"},
+{name:"أرز بالشعرية مع كفتة داود باشا",price:"150"},
+{name:"فتة بالكوارع والخل والثوم",price:"260"},
+{name:"مكرونة ريد صوص مع كبدة إسكندراني",price:"200"},
+{name:"مكرونة ريد صوص مع كفتة لحمة",price:"200"},
+{name:"مكرونة ريد صوص مع سجق",price:"180"},
+{name:"مكرونة ريد صوص مع فراخ بانيه",price:"150"},
+{name:"أرز بسمتي مع استربس",price:"150"},
+{name:"أرز بسمتي مع نص فرخة مشوية",price:"250"},
+{name:"أرز بسمتي مع شيش طاووق",price:"240"},
+{name:"أرز بسمتي مع مشوي صدور",price:"150"},
+{name:"ميكس جريل",desc:"أرز بسمتي مع ربع فرخة مشوية + 2 كفتة لحمة + 2 شيش طاووق",price:"300"},
+{name:"مكرونة وايت صوص مع استربس",price:"200"},
+{name:"مكرونة وايت صوص مع مشوي صدور",price:"220"},
+{name:"مكرونة وايت صوص مع كوردن بلو",price:"250"}
+]
+}
+]
+},
+{
+title:"وجبات تكفي فردين",
+id:"two",
+groups:[
+{
+title:"",
+items:[
+{name:"أرز وملوخية ونص فرخة محمرة",price:"300"},
+{name:"محشي كرنب مع نص بطة",price:"450"},
+{name:"ورقة لحمة بالخضار مع أرز بالشعرية",price:"500"},
+{name:"محشي كرنب وورق عنب وممبار مع كفتة وشيش طاووق ومشوي صدور",price:"500"},
+{name:"أرز بسمتي مع نص فرخة مشوية وكفتة وشيش طاووق",price:"550"}
+]
+}
+]
+}
+];
+
+let cart=[];
+
+function firstNumber(price){
+const nums=String(price).match(/\d+/g);
+return nums?Number(nums[0]):0;
+}
+
+function renderTabs(){
+document.getElementById("tabs").innerHTML=sections.map(s=>`<a class="tab" href="#${s.id}">${s.title}</a>`).join("");
+}
+
+function renderMenu(){
+document.getElementById("menu").innerHTML=sections.map(section=>`
+<article class="menu-section" id="${section.id}">
+<h2 class="section-title">${section.title}</h2>
+${section.groups.map(group=>`
+${group.title?`<h3 class="sub-title">${group.title}</h3>`:""}
+<div class="grid">
+${group.items.map(item=>itemHTML(item)).join("")}
+</div>
+${group.note?`<div class="note">${group.note}</div>`:""}
+`).join("")}
+</article>
+`).join("");
+}
+
+function itemHTML(item){
+const data=encodeURIComponent(JSON.stringify(item));
+const priceText=String(item.price).includes("حسب")?item.price:item.price+" ج.م";
+return `
+<div class="item">
+<h3>${item.name}</h3>
+${item.desc?`<p class="desc">${item.desc}</p>`:""}
+<div class="item-bottom">
+<span class="price">${priceText}</span>
+<button class="add" onclick="addToCart('${data}')">أضيفي للسلة</button>
+</div>
+</div>
+`;
+}
+
+function addToCart(data){
+const item=JSON.parse(decodeURIComponent(data));
+const key=item.name+"|"+item.price;
+const found=cart.find(x=>x.key===key);
+if(found){
+found.qty++;
+}else{
+cart.push({
+key:key,
+name:item.name,
+desc:item.desc||"",
+price:item.price,
+unit:firstNumber(item.price),
+qty:1
+});
+}
+updateCart();
+openCart();
+}
+
+function changeQty(key,delta){
+const item=cart.find(x=>x.key===key);
+if(!item)return;
+item.qty+=delta;
+if(item.qty<=0){
+cart=cart.filter(x=>x.key!==key);
+}
+updateCart();
+}
+
+function removeItem(key){
+cart=cart.filter(x=>x.key!==key);
+updateCart();
+}
+  function total(){
+return cart.reduce((sum,item)=>sum+(item.unit*item.qty),0);
+}
+
+function updateCart(){
+const count=cart.reduce((sum,item)=>sum+item.qty,0);
+document.getElementById("cartCount").textContent=count;
+document.getElementById("floatCartCount").textContent=count;
+document.getElementById("totalPrice").textContent=total();
+
+const box=document.getElementById("cartItems");
+
+if(cart.length===0){
+box.innerHTML=`<div class="empty">السلة فاضية حاليًا… اختاري أكلك المفضل وكمّلي الطلب 😍</div>`;
+return;
+}
+
+box.innerHTML=cart.map(item=>`
+<div class="cart-row">
+<div>
+<div class="cart-name">${item.name}</div>
+${item.desc?`<p class="desc">${item.desc}</p>`:""}
+<div class="price">${String(item.price).includes("حسب")?item.price:item.price+" ج.م"}</div>
+</div>
+<div class="qty">
+<button onclick="changeQty('${item.key}',1)">+</button>
+<span>${item.qty}</span>
+<button onclick="changeQty('${item.key}',-1)">−</button>
+</div>
+<button class="remove" onclick="removeItem('${item.key}')">حذف</button>
+</div>
+`).join("");
+}
+
+function openCart(){
+document.getElementById("cartModal").classList.add("active");
+updateCart();
+}
+
+function closeCart(){
+document.getElementById("cartModal").classList.remove("active");
+}
+
+function sendOrder(){
+const name=document.getElementById("customerName").value.trim();
+const address=document.getElementById("customerAddress").value.trim();
+
+if(cart.length===0){
+alert("السلة فاضية، اختاري صنف الأول.");
+return;
+}
+
+if(!name){
+alert("من فضلك اكتبي الاسم.");
+document.getElementById("customerName").focus();
+return;
+}
+
+if(!address){
+alert("من فضلك اكتبي العنوان بالتفصيل.");
+document.getElementById("customerAddress").focus();
+return;
+}
+
+const orderItems=cart.map(item=>{
+const lineTotal=item.unit?` — ${item.unit*item.qty} ج.م`:` — ${item.price}`;
+return `• ${item.name} × ${item.qty}${lineTotal}`;
+}).join("\n");
+
+const message=`🍽️ *طلب جديد من Walaa food* 🍽️
+
+👤 *الاسم:* ${name}
+📍 *العنوان:* ${address}
+───────────────
+
+🧾 *تفاصيل الطلب:*
+${orderItems}
+
+───────────────
+💰 *إجمالي الطلب:* ${total()} ج.م
+
+شكرًا لاختيارك Walaa food 🤍
+في انتظار تأكيد الأوردر ✨`;
+
+const url=`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+window.open(url,"_blank");
+}
+
+document.getElementById("cartModal").addEventListener("click",function(e){
+if(e.target.id==="cartModal")closeCart();
+});
+
+renderTabs();
+renderMenu();
+updateCart();
+</script>
+</body>
+</html>
